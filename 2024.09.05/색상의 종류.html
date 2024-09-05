@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>alpha값 확인하기</title>
+    <style>
+      div {
+        width: 300px;
+        height: 50px;
+      }
+      .box1 {background: rgb(0, 0, 255);} /* r=red g=green b=blue */
+      .box2 {background: rgba(0, 0, 255, 0.5);} /* ():함수 */
+      .box3 {background: hsl(360, 100%, 50%);} /* h:hue(색상) s:saturation(채도) l:lightness(밝기)*/
+      .box4 {background: hsla(360, 100%, 50%, 0.5);}
+    </style>
+  </head>
+  <body>
+    <h3>rgb와 rgba</h3>
+        <div class="box1"></div>  <!-- div에는 id랑 class 넣을수 있는데 class:여러 공간, id:딱 하나의 공간 -->
+        <div class="box2"></div>
+    <h3>hsl와 hsla</h3>
+        <div class="box3"></div>
+        <div class="box4"></div>
+  </body>
+</html>
