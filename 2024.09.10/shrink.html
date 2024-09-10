@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+     .container {
+        background: powderblue;
+        display: flex;
+        /* 자식은 열로 배치돼라 */
+        flex-direction: row; /* 부모가 행이 돼라 */
+        height: 200px;
+      }
+      .item{background: tomato; color: white; border: 1px solid white;}
+      .item:nth-child(1){flex-basis: 300px;flex-shrink: 0;} /*  shrink는 화면창 줄어들수있게 하는거 0:False 1:True */
+      /* .item:nth-child(2){flex-basis: 300px;} */
+      .sen{flex-basis: 300px;}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item:sen">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+</body>
+</html>

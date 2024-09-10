@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+	.container{display:flex;flex-direction:column;} /* container는 column(세로) 자식이 row(행)*/
+	header{border-bottom:1px solid gray;padding-left:20px;}
+	footer{border-top:1px solid gray;padding-left:20px;text-align:center;} /* text-alighn:center 는 text 가운데 정렬 */
+	section{display:flex;flex-direction:row;}
+	nav{border-right:1px solid gray;  }
+	aside{border-left:1px solid gray;}
+	nav, aside{flex-basis:150px; flex-shrink:0;} /* -> nav랑 aside는 150으로 화면 유지됨 -> 가운데만 움직임 */
+	main{padding:10px;} /* padding은 위아래 여백 */
+
+	/* 반응형시작 */
+	@media(max-width:500px){
+		/* 화면이 500px보다 작아졌을때 단이 없어져라 */
+		.content{display: flex; flex-direction: column; }
+		.content nav, .content aside{border: none; flex-basis: auto;}  /* ,쓰고 띄어쓰기 하면 자식임 */
+		main{order:0;}
+		nav{order:1;}
+		aside{order:2;} /* display:none 하면 안보임*/
+	}
+
+
+
+  </style>
+ </head>
+<body>
+	<div class="container">
+		<header>
+			<h1>flex</h1>
+		</header>
+		<section class="content">
+			<nav>
+				<ul>
+					<li>html</li>
+					<li>css</li>
+					<li>javascript</li>
+				</ul>
+			</nav>
+			<main>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam commodo nunc sit amet scelerisque tempor. Proin nec hendrerit turpis, a interdum sapien. In et molestie dolor. Aenean luctus consectetur magna, at varius tortor ornare nec. Quisque et justo pretium, dignissim nunc ut, porta lorem. Nam non faucibus lectus, nec accumsan odio. Phasellus eu egestas tellus, eu gravida ante. Aenean placerat, augue vitae sagittis mollis, diam turpis iaculis dolor, at ullamcorper enim felis nec ante. Nullam vulputate dui blandit ex viverra, sed mattis tellus facilisis. Phasellus non urna a velit dictum lacinia ac nec tortor. Etiam posuere luctus tellus eget blandit. Nunc tincidunt libero at tellus tempor, nec dapibus ligula vulputate. Donec sed dignissim lorem. Quisque ornare scelerisque nulla vel mollis.
+			</main>
+			<aside>
+				AD
+			</aside>
+		</section>
+		<footer>
+			<a href="https://www.naver.com">홈페이지</a>
+		</footer>
+	</div>
+</body>
+</html>
