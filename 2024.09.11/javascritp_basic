@@ -1,0 +1,46 @@
+//변수 선언 키워드
+const  age=20;
+console.log(age);
+let age2=26;
+age2=28;
+console.log(age2);
+const = constant(상수) : 변하지 않는 값, 회사에선 보통 이걸로 선언(중요한 값이라서)
+let : 변해도 되는 값
+.은 오른쪽에 있는 애가 왼쪽으로 접근하는 접근 연산자
+객체 = 연관 있는 변수 + 연관 있는 함수
+console.log(매개변수 = parameter)
+const top_left_search = " "; //snakecase방법
+const topLeftSearch = " "; //camelCase
+-----------------------------------------------------------------
+원시 자료형
+string : 문자열
+number : 숫자
+boolean : 불리언
+null : 널 -> 원래 있던 값 초기화
+undefined : 정의되지 않음
+symbol : 심볼 -> 고유하고 변경할 수 없는 값(es6에서 추가됨)
+
+let userName = 'jisu'; 
+let age = 20;  
+let married = false;
+const car ={      
+  wheels : 4,
+  color : 'red',
+  "goes fast" : true
+};  
+js에서 {}는 객체, car가 객체 = object,  key : value 넣을 수 있음
+console.log(car['color']); --> [ ] 쓰면 키 값으로 인식
+console.log(car['goes fast']); // true
+-----------------------------------------------------------------
+const car={
+  wheels : 4,
+  color : "red",
+  drive : function(){
+    console.log("wroom wroom")
+  },
+};
+
+console.log(car.color); // "red"
+console.log(Object.keys(car)[0]); // "wheels"
+console.log(typeof Object.keys(car)[0]); // "string"
+car.drive(); // "wroom wroom" 
