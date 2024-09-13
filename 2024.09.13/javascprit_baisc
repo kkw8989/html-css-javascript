@@ -1,1 +1,358 @@
-javascprit_baisc
+2024.09.13
+
+const people=[
+              name:'minseon', age:32,},
+              {name:'seoyeon', age:34,},
+              {name:'yeonju', age:23,} ];
+const markup=`
+<ul>
+${people.map(person => `<li> ${person.name}</li>`)}
+</ul>
+`;
+console.log(markup);
+// map을 쓸 수 있는 이유 : people이 배열
+// ... 과 map 의 공통점 : 1. 새로운 객체 생성 2. 배열 
+// ${people.map(person => `<li> ${person.name}</li>`)} 이곳에 person대신 아무 이름 
+넣어도 되지만 실무에선 x, 
+
+출력　값 :　“ <ul>
+<li> minseon </il>, <li> seoyeon </il>, <li> yeonju </il> 
+</ul>＂ 
+
+-------------------------------------------------------------------------------------------------------
+
+// 삼항 연산자　（조건 ? 참 : 거짓)
+const isDiscounted = false;
+
+function getPrice(){
+  console.log(isDiscounted ? "$10" : "$20");
+};
+getPrice();
+출력　값 :　 ＂$20＂
+
+-------------------------------------------------------------------------------------------------------
+
+const str = "this is a short sentence";
+console.log(str.indexOf("short"));
+
+출력　값 : 10 
+indexOf : string 객체에서 첫 번째 인덱스 찾는 메서드, I
+	 index가 양수 일 때 -> 음수면 없다 -> 검색 기능 활용 가능 
+
+const str1="pizza, orange, cereals";
+console.log(str1.slice(7,13));
+
+출력　값 : "orange" 
+silce(a,b) : index번호 a번부터 b번 이전까지 출력
+
+-------------------------------------------------------------------------------------------------------
+
+const str2="i ate an apple";
+console.log(str2.toUpperCase());
+
+출력　값 : "I ATE AN APPLE"
+toUpperCase()) : 소문자를 대문자로 치환
+
+-------------------------------------------------------------------------------------------------------
+
+const cod="ABCDEFG";
+console.log(cod.startsWith("ABB"));
+출력　값 :  false
+startsWith("a") : a가 있는지 확인
+
+const cod="ABCDEFG";
+console.log(cod.startsWith("abc"));
+출력　값 : false : 대소문자를 구분해서 false
+
+const cod="ABCDEFG";
+console.log(cod.startsWith("ABC"));
+출력　값 : true
+
+const cod="ABCDEFG";
+console.log(cod.startsWith("DEF", 3));
+출력　값 : true (3번째를 지나 4번째부터 문자부터 검사를 시작)
+
+-------------------------------------------------------------------------------------------------------
+
+const cod="ABCDEFG";
+console.log(cod.endsWith("DDD"));
+출력　값 : false
+endsWith() : 매개변수로 전달한 문자로 끝나는지 확인.
+
+const cod="ABCDEFGHI";
+console.log(cod.endsWith("EF",6));
+출력　값 : true 6개 문자까지 확인 후 끝에 2글자랑 같은지 비교
+
+-------------------------------------------------------------------------------------------------------
+
+const cod="ABCDEF";
+console.log(cod.includes("ABC"));
+출력　값 : true
+includes() : 매개변수의 값이 문자열에 포함되어 있는지 확인. include_인클루드_포함시키다
+
+-------------------------------------------------------------------------------------------------------
+
+let hello="Hi";
+console.log(hello.repeat(10));
+출력　값 : "HiHiHiHiHiHiHiHiHiHi"
+repeat() : 반복하며 횟수를 인수로 받는다.
+
+-------------------------------------------------------------------------------------------------------
+
+Destructuting : 배열의 값, 객체의 속성을 풀어서 별개의 변수로 쓸 수 있게 해주는 js문법
+
+const person = {
+  first : "hyeri",
+  last : "yoon",
+};
+
+es5 ver.						es6 ver. (React에서 자주 씀)
+var first = person.first;				const {first, last} = person;
+var last = person.last;				console.log(first);
+console.log(first); 				출력 값 : "hyeri"		
+출력 값 : "hyeri"
+
+
+es5 ver.						es6 ver. (비구조화 할당)
+const array = [1,2];				const array = [1,2];
+const one = array[0];				const [one, two] = array;
+const two = array[1];				console.log(one); 
+console.log(one); 				출력 값 : 1
+출력 값 : 1
+
+const array = [1,2,3,4,5];
+
+const [,,,one, two] = array;
+console.log(one); 
+출력 값 : 4
+
+const [one, two] = array.slice(-2);
+console.log(one); 
+출력 값 : 4
+
+-------------------------------------------------------------------------------------------------------
+const person = {
+  name : "hyeri",
+  last : "yoon",
+  links : {
+    social : {
+      youtube : "https://www.youtube.com/",
+    },
+    facebook : "https://www.facebook.com/",
+  },
+};
+
+1. const {youtube} = person.links.social;
+console.log(youtube);
+출력 값 : "https://www.youtube.com/"
+
+2. const {facebook : fb} = person.links;
+console.log(fb);
+출력 값 : "https://www.facebook.com/"
+
+-------------------------------------------------------------------------------------------------------
+
+const snack = ["pizze","ice cream","cake","cookie","chocolate"];
+const [name, surname,...food] = snack;
+console.log(food);
+
+출력 값 : ["cake", "cookie", "chocolate"]
+
+-------------------------------------------------------------------------------------------------------
+
+let hungry = "yes";
+let full = "no";
+
+[hungry, full] = [full, hungry];
+console.log(hungry,full);
+출력 값 : "no" "yes"
+
+-------------------------------------------------------------------------------------------------------
+
+let arr = ["one","two","three"];
+
+let [one,two,three] = arr;
+console.log(one,two,three);
+출력 값 : "one" "two" "three
+
+-------------------------------------------------------------------------------------------------------
+
+es5 ver.				       es6 ver. : for(let 기본 요소 변수 형 of 객체 명)
+var fruits=['apple','banana','orange'];   const fruits = ['apple','banana','orange'];
+for(var i=0; i<fruits.length; i++){		for(const fruit of fruits) {
+  console.log(fruits[i]);			console.log(fruit);
+}					}
+출력 값 : "apple" "banana" "orange"	출력 값 : "apple" "banana" "orange"
+
+-------------------------------------------------------------------------------------------------------
+
+let friends = [
+  {name : '라이언', age:5},
+  {name : '어피치', age:4},
+  {name : '콘', age:2},
+];
+for(let a of friends){
+  console.log('이름: '+ a.name + ', 나이: '+a.age );
+}
+출력 값 : "이름: 라이언, 나이 : 5", "이름: 어피치, 나이: 4", "이름 : 콘, 나이: 2", 
+
+-------------------------------------------------------------------------------------------------------
+
+for(let 속성 in 개체)
+
+const car = {
+  maker : "BMW",
+  color : "red",
+  year : "2010",
+};
+for (const prop in car){
+  console.log(prop);
+}
+출력 값 : "maker" "color" "year"
+
+console.log(car[prop]);
+출력 값 : "BMW" "red" "2010"
+
+-------------------------------------------------------------------------------------------------------
+
+let list = [4,5,6];
+
+for in : 키의 목록 반환				for of : 값 반환
+for(let i in list){					for(let i of list){
+  console.log(i);					console.log(i);
+}						}
+출력 값 : "0" "1" "2"				출력 값 : 4 5 6
+
+-------------------------------------------------------------------------------------------------------
+
+배열.forEach(function(요소[,인덱스]))  -> [ ] : 옵션 (인덱스 넣어도 되고 빼도 됨)
+
+let friends = [
+  {name : '라이언', age:5},
+  {name : '어피치', age:4},
+  {name : '콘', age:2},
+];
+friends.forEach(function(fr,idx){      -> 함수(함수) : 콜 백 함수
+  console.log('이름: '+ fr.name + ', 나이: '+fr.age );
+});
+출력 값 : "이름: 라이언, 나이: 5", "이름: 어피치, 나이: 4", "이름: 콘, 나이: 2"
+
+익명함수　:　이름 없는 함수, 근데 익명함수는 이름이 없고 감싸고 있는 부모가 실행 됨
+
+---------------------------------------------------------------------------------------------------
+
+비동기함수 : 스스로 동작하는 함수, 동기함수 : 순차적으로 돌아가는 함수
+
+const items = ['apple', 'banana', 'cherry', 'date']
+
+setTimeout(()=>console.log('출력'), 3000);  ->  3초 후 출력됨
+
+items.forEach(item=>{
+  console.log(item);
+});
+출력 값 : "apple" "banana" "cherry" "date" "출력"(3초 후 나옴)
+
+-------------------------------------------------------------------------------------------------------
+
+const numbers = [1, 2, 3, 4, 5];
+const doubledNumbers = [];
+
+numbers.forEach(function(number) {
+  doubledNumbers.push(number * 2);
+});
+
+console.log(doubledNumbers);
+
+-------------------------------------------------------------------------------------------------------
+
+const veggie = ["tomato","cucumber","beans"];
+const newVeggie = veggie;
+veggie.push("peas");
+
+push :  기본 원소 값 변경함, 실무에서 안씀!
+console.log(veggie);
+console.log(newVeggie);
+출력 값 : ["tomato", "cucumber", "beans", "peas"], ["tomato", "cucumber", "beans", "peas"]
+
+newVeggie를 veggie와 별개로 복사 -> const newVeggie = [...veggie]; 
+push 대신 spread 연산자 이용!
+
+-------------------------------------------------------------------------------------------------------
+
+const fruits = Array.from(document.querySelectorAll(".fruits p"));
+const fruitNames = fruits.map(fruit => fruit.textContent);
+console.log(fruitNames);
+출력 값 : ["Apple", "Banana", "Orange"]
+
+from : 배열이 아닌 객체를 배열로 바꾸는 메서드
+document : js -> html 로 가는 메서드
+".fruits p" : 클래스 fruits중 하위 p태그 -> querySelectorAll : 모두 선택
+fruit.textContent : p 태그 안에 있는 text 만 출력
+
+docue of model, browser of model, js 
+
+-------------------------------------------------------------------------------------------------------
+
+const name="myname";
+const person={
+  [name] : "jina"
+};
+  
+console.log(person.myname);
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+function person(name){    --> person의 기능 :  class = 함수 + 객체
+  this.name = name;      --> class로 굳이 만드는 이유　:　자주 써서
+}
+
+person.prototype.sayName = function(){
+  // console.log(this);    => person {　} , person｛｝　： 가리킴
+  console.log(`name is ${this.name}`);
+};
+
+const me = new person('Jina');   --> new : class 그대로 복사 -> 객체 생성 -> 인스턴스　
+const you = new person('Jinsu');  --> me, you : person type의 객체
+
+me.sayName();  
+you.sayName();
+
+출력 값 : "name is Jina" "name is Jinsu"
+
+prototype : 원형
+person.prototype.sayName
+person원형을 그대로 복사해서 sayName(person type의 함수)를 씀
+
+ex)Array.prototype.push() 
+array.push 안하는 이유는 array에 있는 로직 쓰면 안돼서
+function person(name,age){ 
+  this.name = name;
+  this.age = age;
+}
+
+-------------------------------------------------------------------------------------------------------
+
+person.prototype.greet = function(){
+  console.log("hello, my name is " + this.name);
+};
+
+const Jisu = new person('Jisu', 25);
+const Jinsu = new person('Jinsu', 27);
+
+Jisu.greet();
+Jinsu.greet();
+출력 값 : "hello, my name is Jisu" "hello, my name is Jinsu"
+
+-------------------------------------------------------------------------------------------------------
+
+const myTest = {x : 20};
+const obj = {
+  y: 40,
+  
+  __proto__: myTest  --> 직접상속, obj 에 my Test 직접 받겠다, 거의 안 씀
+}
+
+console.log(`obj.x = ${obj.x}, obj.y = ${obj.y}`);
+출력 값 :  "obj.x = 20, obj.y = 40"
